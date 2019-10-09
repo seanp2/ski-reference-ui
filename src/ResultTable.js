@@ -2,9 +2,7 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 import ResultRow from './ResultRow';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import './App.css';
-// import Card from 'react-bootstrap/Card';
-// import DropdownButton from 'react-bootstrap/DropdownButton'
+
 
 class ResultTable extends React.Component {
 
@@ -17,7 +15,6 @@ class ResultTable extends React.Component {
       let rows= []
       for(let i=0; i < this.props.result.length;i++) {
           rows[i] = <ResultRow rank={i + 1} result={this.props.result[i]}/>
-          console.log(this.props.result[i]);
       }
       return rows;
   }

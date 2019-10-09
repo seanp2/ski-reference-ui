@@ -1,10 +1,8 @@
 import React from 'react';
 import './App.css';
-import Results from './Results';
 import Header from './Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import Card from 'react-bootstrap/Card';
-// import DropdownButton from 'react-bootstrap/DropdownButton'
+
 
 class App extends React.Component {
 
@@ -24,7 +22,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header view="Home"/>
+        <Header view='home'/>
       </div>
     );
   }
