@@ -9,8 +9,8 @@ class ResultHeader extends React.Component {
 
     render() {
         return(
-            <div>
-                <Jumbotron fluid>
+            <div style = {{"padding":"4vh","background-image": "url('https://data.fis-ski.com/static/apps/fis_templates/css/images/content-background.jpg')", backgroundSize: 'cover'}} >
+                <div>
                     <Container>
                         <Col>
                         <h1>{this.props.venue + ", " +  this.props.event}</h1>
@@ -32,7 +32,7 @@ class ResultHeader extends React.Component {
                         </ul>
                         </Col>
                     </Container>
-                </Jumbotron>
+                </div>
             </div>
         )
     }
