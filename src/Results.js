@@ -50,20 +50,9 @@ class Results extends React.Component {
     }
   }
 
-  async getScorers() {
-    let data = [];
-    await fetch("http://localhost:8181/results/" + this.props.raceID + "/scorers")
-    .then(response => {if (response.status !== 200)  {return this.handleError()}})
-    .then(response => response.json())
-    .then(jsonData => data =  jsonData)
-    .then(() => this.setState({loading:false}));
-    
-    return data;
-  }
-
   async getResults() {
     let data = [];
-    await fetch("http://localhost:8181/results/" + this.props.raceID)
+    await fetch("http://ski-reference-api.us-east-2.elasticbeanstalk.com/results/" + this.props.raceID)
     .then(response => response.json())
     .then(jsonData => data =  jsonData)
     .then(() => this.setState({loading:false}))
@@ -76,7 +65,7 @@ class Results extends React.Component {
         <div className="Results">
           <ResultHeader numScorers= {this.state.numScorers} penalty = {this.state.penalty} finishRate = {this.state.finishRate.toFixed(2)} venue = {this.state.venue} month = {this.state.date.month} day={this.state.date.day} year={this.state.date.year} event={this.state.event}/>
           <GraphSelector scorers = {this.state.scorers} data ={this.state.result}/>
-          <ResultTable scorers = {this.state.scorers} result={this.state.result}/>
+          <ResultTable scorers = {this.state.scorers} result={this.state.result} raceID={this.props.raceID}/>
         </div>
       );
     }

@@ -23,7 +23,8 @@ class ResultRow extends React.Component {
     if(this.props.speedRace===true)   {
         return (
             <tr>
-                <td>{this.props.rank}</td>
+                <td>{this.props.result.result.rank}</td>
+                <td>{this.props.result.result.bib}</td>
                 <td>{this.props.result.competitorID}</td>
                 <td>{this.props.result.lastfirstName}</td>
                 <td>{this.props.result.nation}</td>
@@ -38,7 +39,8 @@ class ResultRow extends React.Component {
     } else { 
         return(
             <tr>
-                <td>{this.props.rank}</td>
+                <td>{this.props.result.result.rank}</td>
+                <td>{this.props.result.result.bib}</td>
                 <td>{this.props.result.competitorID}</td>
                 <td>{this.props.result.lastfirstName}</td>
                 <td>{this.props.result.nation}</td>

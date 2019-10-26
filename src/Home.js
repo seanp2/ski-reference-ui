@@ -17,7 +17,7 @@ class Home extends React.Component {
           <h1>FIS Alpine stats, graphs, and more.</h1>
         </div>
         <div className="centered">
-          <img alt="" height="150vh" src={require('./S-RLogoAlt.png')}/>
+          <img alt="" height="100vh" src={require('./S-RLogoAlt.png')}/>
         </div>
         <div style={{padding:"3vh"}}/>
         <Row>

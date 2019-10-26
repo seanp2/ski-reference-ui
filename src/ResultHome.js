@@ -100,7 +100,7 @@ class ResultHome extends React.Component {
                     <Form.Control inline onChange={this.handleChange} placeholder="Enter Race URL" />
                     &nbsp;
 
-                    <Button variant='secondary' inline type='submit' >Submit</Button>
+                    <Button  inline type='submit' >Submit</Button>
                   </Form.Group>
               </Form>
               {this.getErrorMessage(this.state.error)}
