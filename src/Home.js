@@ -33,7 +33,7 @@ class Home extends React.Component {
               </Card>
           </Col>
           <Col className="centered">
-            <Card  className = "select_card"  onClick={() => {this.props.changeView({name: 'coming-soon'})}} style={{  height: '15rem',width: '20rem' }}>
+            <Card  className = "select_card"  onClick={() => {this.props.changeView({name: 'comparison-home'})}} style={{  height: '15rem',width: '20rem' }}>
                 <Card.Header><Card.Title>Athlete Comparison</Card.Title></Card.Header>
                 <Card.Body>
                   

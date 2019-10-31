@@ -23,7 +23,7 @@ class Comparison extends React.Component {
             fisIdsRequestArray += this.props.fisIds[i] + ","
         }
         let data =[]
-        await fetch("http://localhost:5000/comparison/" + fisIdsRequestArray.substr(0,fisIdsRequestArray.length - 1))
+        await fetch("http://ski-reference-api.us-east-2.elasticbeanstalk.com/comparison/" + fisIdsRequestArray.substr(0,fisIdsRequestArray.length - 1))
         .then(response => response.json())
         .then(jsonData => data =  jsonData)
         .then(() => this.setState({fetching:false}))
@@ -51,7 +51,7 @@ class Comparison extends React.Component {
                                         </tr>)
         }
         return (<div style={{"padding":"20px"}}>
-            <div><a style={{"color":"black"}}href={"https://www.fis-ski.com/DB/general/results.html?sectorcode=AL&raceid=" + raceID}><h3>{venue}: {date.month + "/" + date.day + "/" + date.year}</h3></a></div>
+            <div><a style={{"color":"black"}} target="_blank" href={"https://www.fis-ski.com/DB/general/results.html?sectorcode=AL&raceid=" + raceID}><h3>{venue}: {date.month + "/" + date.day + "/" + date.year}</h3></a></div>
             <Table striped bordered hover>
             <thead>
                 <tr>

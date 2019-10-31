@@ -21,7 +21,6 @@ class Header extends React.Component {
     this.getView = this.getView.bind(this);
   }
   getView(view) {
-    console.log(view)
     if (view.name === "result-home") {
         return (<ResultHome error={false} showSearch={true} changeView={(newView => {this.setState({view:newView})})}/>)
     } else if (view.name === "coming-soon") {

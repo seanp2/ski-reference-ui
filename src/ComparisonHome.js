@@ -63,7 +63,6 @@ class ComparisonHome extends React.Component {
       const curNumForms = this.state.forms.length
       
       let newForms = this.state.forms
-      console.log("HELLO")
       newForms[curNumForms] = (
         <div>
         <Form>
@@ -83,7 +82,6 @@ class ComparisonHome extends React.Component {
       this.setState({
           forms:newForms
       })
-      console.log(this.state.forms)
   }
 
   handleError() {
