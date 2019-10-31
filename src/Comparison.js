@@ -40,10 +40,12 @@ class Comparison extends React.Component {
         let venue;
         let date;
         let raceID;
+        let discipline;
         for (let i = 0; i < this.state.sharedResults.athletes.length; i ++ ) {
             venue = sharedResult[i].venue;
             date = sharedResult[i].date;
             raceID = sharedResult[i].raceID;
+            discipline = sharedResult[i].discipline
             individualAthleteRows[i] = (<tr>
                                             <td>{this.state.sharedResults.athletes[i].name}</td>
                                             <td>{sharedResult[i].rank}</td>
@@ -51,7 +53,7 @@ class Comparison extends React.Component {
                                         </tr>)
         }
         return (<div style={{"padding":"20px"}}>
-            <div><a style={{"color":"black"}} target="_blank" href={"https://www.fis-ski.com/DB/general/results.html?sectorcode=AL&raceid=" + raceID}><h3>{venue}: {date.month + "/" + date.day + "/" + date.year}</h3></a></div>
+            <div><a style={{"color":"black"}} target="_blank" href={"https://www.fis-ski.com/DB/general/results.html?sectorcode=AL&raceid=" + raceID}><h3>{venue} {discipline}: {date.month + "/" + date.day + "/" + date.year}</h3></a></div>
             <Table striped bordered hover>
             <thead>
                 <tr>
