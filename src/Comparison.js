@@ -2,6 +2,7 @@ import React from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table'
+import CenterView from './CenterView';
 
 class Comparison extends React.Component {
     constructor(props){
@@ -32,8 +33,10 @@ class Comparison extends React.Component {
     }
 
     handleError() {
-        // TODO: 
+        this.props.changeView({name:"comparison-error", athleteIds:this.props.fisIds})
     }
+
+
 
     getSingleResultComponent(sharedResult) {
         let individualAthleteRows = []
@@ -75,6 +78,11 @@ class Comparison extends React.Component {
         if (this.state.sharedResults.hasOwnProperty('sharedResults')) {
             for (let i = 0; i < this.state.sharedResults.sharedResults.length; i ++) {
                 resultComponents[i] = this.getSingleResultComponent(this.state.sharedResults.sharedResults[i])
+            }
+            if (resultComponents.length == 0) {
+                return <CenterView>
+                    <h1>The selected athletes have never competed against each other</h1>
+                </CenterView>
             }
         }
         return(<div>

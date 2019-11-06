@@ -27,7 +27,7 @@ class ComparisonHome extends React.Component {
                 </Col>
                 </Form.Group>
             </Form>)]),
-        athleteIds:[]
+        athleteIds:props.athleteIds
     }
     this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -53,7 +53,7 @@ class ComparisonHome extends React.Component {
     if (this.state.error) {
       return (
         <div style={{color:'red'}}>
-          * You have entered an invalid URL *
+          * You have entered an invalid athlete FIS ID *
         </div>
       )
     }
@@ -85,9 +85,7 @@ class ComparisonHome extends React.Component {
   }
 
   handleError() {
-    this.setState({
-      error:true,
-    })
+    this.props.changeView({name:"comparison-error"})
   }
 
 
@@ -96,23 +94,22 @@ class ComparisonHome extends React.Component {
   render() {
       return (
         <div style = {{"background-image": "url('https://data.fis-ski.com/static/apps/fis_templates/css/images/content-background.jpg')", 
-          display: 'flex',
+        backgroundAttachment: "fixed",
+        display: 'flex',
           justifyContent: 'center',
           padding:'20px',
-        backgroundSize: 'cover', height:"100vh"}}  >
+        backgroundSize: 'cover', minHeight:"100vh"}}  >
             <Card style={{ width: '40rem', height:'80vh' }}>
                 <Card.Body>
                   <Card.Title>Athlete Comparison</Card.Title>
+                  Select multiple athletes and see head to head results over their FIS career.
                   <ol align="left">
                     <li>Go to the <a target = '_blank' href = "https://www.fis-ski.com/DB/general/biographies.html">FIS Website</a>,
                           and find the FIS codes of athletes you would like to compare.
                     </li>
                     <li>Paste the FIS code of each athlete, and then press submit.</li>
-                  
-                  </ol>
-                      
-                  <div>{this.state.forms}</div>
-                  
+                  </ol>           
+                  <div>{this.state.forms}</div>                  
                   <ButtonToolbar>
                     <ButtonGroup className="mr-2" aria-label="First group">
                         <Button variant='secondary' onClick={() => this.addForm()}> Add Athlete</Button>
@@ -120,11 +117,8 @@ class ComparisonHome extends React.Component {
                     <ButtonGroup className="mr-2" >
                         <Button onClick={this.handleSubmit}>Submit</Button>
                     </ButtonGroup>
-                  </ButtonToolbar>
-                  
-                {this.getErrorMessage(this.state.error)}
-
-              
+                  </ButtonToolbar>                 
+                {this.getErrorMessage(this.state.error)}            
                 </Card.Body>
               </Card>                            
         </div>

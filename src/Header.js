@@ -7,8 +7,11 @@ import ComingSoon from './ComingSoon';
 import ResultHome from './ResultHome';
 import ComparisonHome from './ComparisonHome';
 import Comparison from './Comparison';
+import Contact from './Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { isNewExpression } from '@babel/types';
+import Results from './Results';
+import Footer from './Footer';
 
 
 class Header extends React.Component {
@@ -27,22 +30,26 @@ class Header extends React.Component {
         return (<ComingSoon/>);
     } else if (view.name === "result-error") {
       return(<ResultHome showSearch={true} error={true} changeView={(newView => {this.setState({view:newView})})}/>)
-    } else if (view.name === "comparison-home") {
-      return (<ComparisonHome changeView={(newView => {this.setState({view:newView})})}/>)
+    }
+    else if (view.name === "result-view") {
+      return (<Results changeView={(newView => {this.setState({view:newView})})} raceID={view.raceID}/>)
+    }
+    else if (view.name === "comparison-home") {
+      return (<ComparisonHome athleteIds={[]} changeView={(newView => {this.setState({view:newView})})}/>)
     } else if (view.name === "comparison-view") {
-      return (<Comparison fisIds={view.fisIds}/>)
+      return (<Comparison changeView={(newView => {this.setState({view:newView})})} fisIds={view.fisIds}/>)
+    } else if (view.name === "comparison-error") {
+      return (<ComparisonHome athleteIds={view.athleteIds}  error={true} changeView={(newView => {this.setState({view:newView})})}/>)
     }
-    
-    else {
+    else if (view.name === "home"){
         return (<Home changeView={(newView => {this.setState({view:newView})})}/>);      
-    }
-    
-
+    } 
+  
   }
   render() {
     return (
       <div > 
-        <Navbar  bg="dark" variant="dark" >
+        <Navbar  expand="lg" bg="dark" variant="dark" >
           <Navbar.Brand onClick={() => this.setState({view:{name: 'home'}})}><img alt="" height='50px' src={require("./S-RLogoAlt.png")}/></Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link onClick={() => {this.setState({view:{name: 'result-home'}})}}>Results</Nav.Link>
@@ -51,6 +58,7 @@ class Header extends React.Component {
             </Nav>
         </Navbar>
         {this.getView(this.state.view)}
+        <Footer/>
       </div>
     );
   }

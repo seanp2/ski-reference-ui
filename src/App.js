@@ -12,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header view='home'/>
+        <Header view={{name:'home'}}/>
       </div>
     );
   }

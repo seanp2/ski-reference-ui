@@ -3,7 +3,9 @@ import './App.css';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CenterView from './CenterView';
 
 class Home extends React.Component {
 
@@ -11,7 +13,10 @@ class Home extends React.Component {
   render() {
     return (
       
-      <div style = {{"background-image": "url('https://data.fis-ski.com/static/apps/fis_templates/css/images/content-background.jpg')", backgroundSize: 'cover', height:"100vh"}} className="background-image" >
+      <div style = {{"background-image": "url('https://data.fis-ski.com/static/apps/fis_templates/css/images/content-background.jpg')", 
+        backgroundAttachment: "fixed",
+          padding:'20px',
+        backgroundSize: 'cover', minHeight:"100vh"}} className="background-image" >
         <div style={{padding:"3vh"}}/>
         <div className="centered" >  
           <h1>FIS Alpine stats, graphs, and more.</h1>
@@ -20,43 +25,32 @@ class Home extends React.Component {
           <img alt="" height="100vh" src={require('./S-RLogoAlt.png')}/>
         </div>
         <div style={{padding:"3vh"}}/>
-        <Row>
-          <Col className="centered">
-            <Card className = "select_card" onClick={() => {this.props.changeView({name: 'result-home'})}} style={{  height: '15rem',width: '20rem' }}>
-                <Card.Header><Card.Title>Result Analysis</Card.Title></Card.Header>
-                <Card.Body>
-                  <Card.Text>
-                  Search for any FIS-sanctioned alpine ski race to see which athletes 
-                  lowered their world rank, graph visualizations, and other statistics.
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-          </Col>
-          <Col className="centered">
-            <Card  className = "select_card"  onClick={() => {this.props.changeView({name: 'comparison-home'})}} style={{  height: '15rem',width: '20rem' }}>
-                <Card.Header><Card.Title>Athlete Comparison</Card.Title></Card.Header>
-                <Card.Body>
-                  
-                  <Card.Text>
-                  Select athletes and see head to head results over their FIS career.
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-          </Col>
-          <Col className="centered">
-            <Card className = "select_card"  onClick={() => {this.props.changeView({name: 'coming-soon'})}} style={{ height: '15rem',width: '20rem' }}>
-                <Card.Header><Card.Title>Athlete Tracking</Card.Title></Card.Header>
-                <Card.Body>
-                  
-                  <Card.Text>
-                  Select athletes and receive email notifications every day they race.
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-          </Col>
-          
-        </Row>
-
+    
+  <Row className="justify-content-md-center">   
+  <Carousel variant="dark" className="carousel">
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="/WC_result.png"
+      width="75%"
+    />
+    <Carousel.Caption style={{"color":"black"}}  >
+      <h3  >Result Analysis</h3>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="/WC_comparison.png"
+      width="75%"
+    />
+    <Carousel.Caption style={{"color":"black"}} >
+      <h3>Athlete Comparison</h3>
+    </Carousel.Caption>
+  </Carousel.Item>
+  
+</Carousel>
+</Row>
       </div>
     );
   }

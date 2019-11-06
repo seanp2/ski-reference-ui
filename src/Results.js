@@ -23,7 +23,7 @@ class Results extends React.Component {
 
 
   handleError() {
-    this.props.handleError();
+    this.props.changeView({name:"result-error"})
   }
 
   async componentDidMount() {
