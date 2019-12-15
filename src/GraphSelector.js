@@ -9,7 +9,7 @@ class GraphSelector extends React.Component {
       super(props)
       this.state = {
           xAxis:"Bib",
-          yAxis:"FIS Score",
+          yAxis:"Rank",
           graph:"bib_vs_score",
           selectedData:[],
           
@@ -33,7 +33,7 @@ class GraphSelector extends React.Component {
       if(newGraph === "bib_vs_score"){
           this.setState({
               xAxis:"Bib",
-              yAxis:"FIS Score"
+              yAxis:"Rank"
           })
       } else if(newGraph === "rank_vs_score"){
         this.setState({
@@ -103,12 +103,20 @@ class GraphSelector extends React.Component {
 
   getBibVsScoreData() {
     let data = []
-    data[0] =["Bib", "FIS Score", {type: 'string', role: 'tooltip'},{role : 'style'}]
+    data[0] =["Bib", "Rank", {type: 'string', role: 'tooltip'},{role : 'style'}]
     for (let i = 0; i< this.props.data.length; i++) {
-        const color = this.getColor(this.props.data[i]);
-        let dataPoint = [parseInt(this.props.data[i].result.bib), parseFloat(this.props.data[i].result.score), this.getTooltip(this.props.data[i]), color   ]
-        data[i + 1] = dataPoint;
+      const color = this.getColor(this.props.data[i]);
+      let dataPoint;
+      if (this.props.data[i].result.combined === "DNF") {
+        dataPoint = [parseInt(this.props.data[i].result.bib), this.props.data.length, this.getTooltip(this.props.data[i]), color   ]
+
+      }
+      else {
+        dataPoint = [parseInt(this.props.data[i].result.bib), parseInt(this.props.data[i].result.rank), this.getTooltip(this.props.data[i]), color   ]
+      }
+      data[i + 1] = dataPoint;
     }
+  
     return data;
   }
   getRankVsCombinedTimeData() {
@@ -140,7 +148,7 @@ class GraphSelector extends React.Component {
     <div>
         <Nav activeKey={this.state.graph} onSelect={(eventKey) => {this.setSelectGraph(`${eventKey}`)}} variant="tabs" defaultActiveKey="/home">
             <Nav.Item>
-                <Nav.Link eventKey='bib_vs_score'>Bib vs. FIS Score</Nav.Link>
+                <Nav.Link eventKey='bib_vs_score'>Bib vs. Rank</Nav.Link>
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link eventKey='rank_vs_score' >Rank vs. FIS Score</Nav.Link>

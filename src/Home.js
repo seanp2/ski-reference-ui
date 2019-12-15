@@ -6,10 +6,15 @@ import Row from 'react-bootstrap/Row';
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CenterView from './CenterView';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
 
 class Home extends React.Component {
 
-
+  constructor() {
+    super();
+    fetch( "http://api.ski-reference.com/visitor/increment/homePage",{method: "POST"})
+  }
   render() {
     return (
       

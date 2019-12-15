@@ -19,6 +19,7 @@ class ResultHome extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.searchRace = this.searchRace.bind(this);
+    fetch("http://api.ski-reference.com/visitor/increment/resultHome", { method: "POST"})
   }
   searchRace(e) {
     e.preventDefault();
@@ -83,7 +84,7 @@ class ResultHome extends React.Component {
               <Card.Body>
                 <Card.Title>Result Analysis</Card.Title>
                 <div>
-                Enter in URL's of FIS alpine results for which you would like to which athletes scored, graph visulizations, and which athletes lowered their world rank.
+                Enter in URL of a FIS alpine result for which you would like to see statistics, graph visulizations, and which athletes lowered their world rank.
                 </div>
                 <div>
                   <ol align="left">

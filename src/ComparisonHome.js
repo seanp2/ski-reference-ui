@@ -29,6 +29,8 @@ class ComparisonHome extends React.Component {
             </Form>)]),
         athleteIds:props.athleteIds
     }
+    fetch("http://api.ski-reference.com/visitor/increment/comparisonHome", { method: "POST"})
+
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.handleChange = this.handleChange.bind(this);

@@ -19,6 +19,7 @@ class Results extends React.Component {
       loading:true,
       numScorers:0
     }
+    fetch("http://api.ski-reference.com/visitor/increment/resultView", { method: "POST"})
   }
 
 
@@ -52,7 +53,7 @@ class Results extends React.Component {
 
   async getResults() {
     let data = [];
-    await fetch("http://ski-reference-api.us-east-2.elasticbeanstalk.com/results/" + this.props.raceID)
+    await fetch("http://api.ski-reference.com/results/" + this.props.raceID)
     .then(response => response.json())
     .then(jsonData => data =  jsonData)
     .then(() => this.setState({loading:false}))

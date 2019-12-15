@@ -7,7 +7,6 @@ import ComingSoon from './ComingSoon';
 import ResultHome from './ResultHome';
 import ComparisonHome from './ComparisonHome';
 import Comparison from './Comparison';
-import Contact from './Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { isNewExpression } from '@babel/types';
 import Results from './Results';
@@ -50,7 +49,7 @@ class Header extends React.Component {
     return (
       <div > 
         <Navbar  expand="lg" bg="dark" variant="dark" >
-          <Navbar.Brand onClick={() => this.setState({view:{name: 'home'}})}><img alt="" height='50px' src={require("./S-RLogoAlt.png")}/></Navbar.Brand>
+          <Navbar.Brand onClick={() => this.setState({view:{name: 'home'}})}><img alt="" height='70px' src={require("./S-RLogoWhite.png")}/></Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link onClick={() => {this.setState({view:{name: 'result-home'}})}}>Results</Nav.Link>
               <Nav.Link onClick={() => {this.setState({view:{name: 'comparison-home'}})}}>Athlete Comparison</Nav.Link>

@@ -30,6 +30,7 @@ class ResultRow extends React.Component {
                 <td>{this.props.result.nation}</td>
                 <td>{this.props.result.birthyear}</td>
                 <td>{this.secondsToMinutes(this.props.result.result.combined)}</td>
+                <td>+{this.props.result.result.difference}</td>
                 <td>{this.props.result.previousPoints}</td>
                 <td>{this.props.result.result.score}</td>
             </tr>
@@ -48,6 +49,7 @@ class ResultRow extends React.Component {
                 <td>{this.secondsToMinutes(this.props.result.result.firstRun)}</td>
                 <td>{this.secondsToMinutes(this.props.result.result.secondRun)}</td>
                 <td>{this.secondsToMinutes(this.props.result.result.combined)}</td>
+                <td>+{this.props.result.result.difference}</td>
                 <td>{this.props.result.previousPoints}</td>
                 <td>{this.props.result.result.score}</td>
             </tr>

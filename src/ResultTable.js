@@ -20,7 +20,7 @@ class ResultTable extends React.Component {
   }
 
   async componentDidMount() {
-    await fetch("http://ski-reference-api.us-east-2.elasticbeanstalk.com/results/" + this.props.raceID + "/scorers")
+    await fetch("http://api.ski-referenßce.com/results/" + this.props.raceID + "/scorers")
     .then(response => response.json())
     .then(jsonData => this.setState({scorers:jsonData}))
   }
@@ -67,8 +67,9 @@ class ResultTable extends React.Component {
                     <th>Run 1 Time</th>
                     <th>Run 2 Time</th>
                     <th>Combined Time</th>
+                    <th>Diff. Time</th>
                     <th>Prev. FIS Points</th>
-
+              
                     <th>FIS Score</th>
 
                     

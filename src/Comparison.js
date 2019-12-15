@@ -12,6 +12,8 @@ class Comparison extends React.Component {
             fetching:true,
             athletes:[]
         }
+        fetch( "http://api.ski-reference.com/visitor/increment/comparisonView",{method: "POST"})
+
         this.getSharedResults = this.getSharedResults.bind(this)
         this.handleError = this.handleError.bind(this)
         this.getResultComponents = this.getResultComponents.bind(this)
@@ -24,7 +26,7 @@ class Comparison extends React.Component {
             fisIdsRequestArray += this.props.fisIds[i] + ","
         }
         let data =[]
-        await fetch("http://ski-reference-api.us-east-2.elasticbeanstalk.com/comparison/" + fisIdsRequestArray.substr(0,fisIdsRequestArray.length - 1))
+        await fetch("http://api.ski-reference.com/comparison/" + fisIdsRequestArray.substr(0,fisIdsRequestArray.length - 1))
         .then(response => response.json())
         .then(jsonData => data =  jsonData)
         .then(() => this.setState({fetching:false}))
